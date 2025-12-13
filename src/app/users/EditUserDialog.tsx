@@ -5,24 +5,17 @@ import { useUserStore } from "@/lib/store/userStore";
 import UserForm from "./AddUserForm";
 
 export default function EditUserDialog() {
-  const selectedUser = useUserStore((s) => s.selectedUser);
-  const selectUser = useUserStore((s) => s.selectUser);
+  const editUser = useUserStore((s) => s.editUser);
+  const setEditUser = useUserStore((s) => s.setEditUser);
 
   return (
-    <Dialog
-      open={!!selectedUser}
-      onOpenChange={(open) => {
-        if (!open) selectUser(null);
-      }}
-    >
+    <Dialog open={!!editUser} onOpenChange={(open) => !open && setEditUser(null)}>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Edit User</DialogTitle>
         </DialogHeader>
 
-        {selectedUser && (
-          <UserForm user={selectedUser} onClose={() => selectUser(null)} />
-        )}
+        {editUser && <UserForm user={editUser} onClose={() => setEditUser(null)} />}
       </DialogContent>
     </Dialog>
   );

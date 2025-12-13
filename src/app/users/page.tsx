@@ -1,5 +1,5 @@
 import UserList from "./UserList";
-import UserDetailPanel from "./users/UserDetailPanel";
+import UserDetailPanel from "./UserDetailPanel";
 import EditUserDialog from "./EditUserDialog";
 import AddUserDialog from "./AddUserDialog";
 import AddUserButton from "./AddUserButton";

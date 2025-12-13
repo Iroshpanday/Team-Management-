@@ -10,7 +10,7 @@ interface Props {
 
 export default function ActionsCell({ user }: Props) {
   const deleteUser = useUserStore((s) => s.deleteUser);
-  const selectUser = useUserStore((s) => s.selectUser);
+  const setEditUser = useUserStore((s) => s.setEditUser);
 
   return (
     <div className="flex gap-2">
@@ -19,7 +19,7 @@ export default function ActionsCell({ user }: Props) {
         variant="outline"
         onClick={(e) => {
           e.stopPropagation();
-          selectUser(user);
+          setEditUser(user);
         }}
       >
         Edit
